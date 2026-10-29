@@ -67,6 +67,8 @@ export function Prologue({ z }: { z: number }) {
   const [widths, setWidths] = useState<Widths>(null);
   const aspect = useThree((s) => s.size.width / s.size.height);
   const s = THREE.MathUtils.clamp(aspect / 1.7, 0.42, 1);
+  // On tall (phone) screens the headline copy fills the lower half, so lift the title clear of it.
+  const baseY = aspect < 1 ? 1.75 + (1 - aspect) * 2.4 : 1.75;
 
   useFrame((state, dt) => {
     if (!title.current) return;
@@ -81,7 +83,7 @@ export function Prologue({ z }: { z: number }) {
 
   return (
     <group position={[0, 0, z]}>
-      <group ref={title} position={[0, 1.75, 0]} scale={s * 0.85}>
+      <group ref={title} position={[0, baseY, 0]} scale={s * 0.85}>
         {layers.map((l, i) => (
           <group key={i} position={[0, 0, l.z]}>
             <Text font={FONT_DISPLAY} fontSize={TITLE} letterSpacing={-0.04} anchorX="center" anchorY="middle" position={[0, LINE, 0]} fillOpacity={l.opacity} color={l.color}>
@@ -91,7 +93,7 @@ export function Prologue({ z }: { z: number }) {
           </group>
         ))}
       </group>
-      <Text font={FONT_BODY} position={[0, 1.75 - 1.75 * s, 0.3]} fontSize={0.17 * Math.max(s, 0.7)} letterSpacing={0.32} color={palette.lime} anchorX="center">
+      <Text font={FONT_BODY} position={[0, baseY - 1.75 * s, 0.3]} fontSize={0.17 * Math.max(s, 0.7) * (aspect < 1 ? 0.6 : 1)} letterSpacing={aspect < 1 ? 0.2 : 0.32} color={palette.lime} anchorX="center">
         A STORY OF TEMPLATES, DEADLINES & GETTING IT TOGETHER
       </Text>
 

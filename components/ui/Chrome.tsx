@@ -100,7 +100,7 @@ export function Nav() {
       </nav>
       <div className="nav__actions">
         {home && (
-          <button className="btn btn--ghost btn--sm" onClick={enterVR}>
+          <button className="btn btn--ghost btn--sm nav__vr" onClick={enterVR}>
             <span className="vr-glyph" aria-hidden>◉◉</span> Enter VR
           </button>
         )}

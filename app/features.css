@@ -678,4 +678,49 @@
   .account__grid {
     grid-template-columns: 1fr;
   }
+  .auth__form {
+    padding-top: 96px;
+  }
+}
+
+@media (max-width: 560px) {
+  .feedback-tab {
+    right: 12px;
+    bottom: 12px;
+    height: 36px;
+    padding: 0 14px;
+    font-size: 10px;
+  }
+  .modal__card {
+    padding: 22px 18px;
+    max-height: calc(100svh - 32px);
+  }
+  .drawer__head,
+  .drawer__foot {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .drawer__list {
+    padding: 8px 18px;
+  }
+  .cart-line {
+    grid-template-columns: 56px 1fr auto;
+    gap: 10px;
+  }
+  .cart-line__thumb {
+    width: 56px;
+  }
+  .otp {
+    gap: 6px;
+  }
+  .otp input {
+    height: 52px;
+    font-size: 20px;
+  }
+  .name-editor__row {
+    flex-wrap: wrap;
+  }
+  .user-menu__pop {
+    width: min(240px, calc(100vw - 32px));
+  }
 }

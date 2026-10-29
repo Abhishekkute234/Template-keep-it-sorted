@@ -1258,8 +1258,8 @@ select.field option {
   .nav {
     padding-top: 14px;
   }
-  .nav__actions .btn--ghost {
-    display: none;
+  .nav__vr {
+    display: none; /* "Enter VR" lives in the hero on phones */
   }
   .hero__top .eyebrow--right {
     display: none;
@@ -1315,6 +1315,250 @@ select.field option {
   }
   .footer__grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- phones ---------- */
+@media (max-width: 760px) {
+  /* nav: one tidy row */
+  .nav {
+    gap: 10px;
+    padding: 12px var(--gutter);
+    background: linear-gradient(to bottom, rgba(7, 6, 11, 0.85), transparent);
+  }
+  .nav__logo {
+    min-width: 0;
+    gap: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .nav__logo img {
+    width: 28px;
+    height: 28px;
+  }
+  .nav__actions {
+    flex: none;
+    gap: 6px;
+  }
+  .nav__actions .btn--sm {
+    height: 34px;
+    padding: 0 12px;
+  }
+
+  /* story chapters: readable copy over the 3D scene */
+  .chapter {
+    height: 180vh;
+  }
+  .chapter--finale {
+    height: 150vh;
+  }
+  .chapter__stick {
+    padding: 80px var(--gutter) 24px;
+  }
+  .chapter:not(.chapter--hero):not(.chapter--finale) .chapter__stick {
+    background: linear-gradient(to top, rgba(7, 6, 11, 0.92) 0%, rgba(7, 6, 11, 0.7) 45%, transparent 75%);
+  }
+  .chapter__eyebrow {
+    top: 74px;
+    gap: 10px;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+  }
+  .chapter__eyebrow i {
+    width: 24px;
+  }
+  .copy {
+    max-width: 100%;
+  }
+  .kinetic {
+    margin-bottom: 12px;
+    font-size: clamp(26px, 8vw, 36px);
+  }
+  .lede {
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .chips {
+    gap: 6px;
+  }
+  .chip {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  .btn {
+    height: 44px;
+    padding: 0 18px;
+    font-size: 11px;
+  }
+  .btn--sm {
+    height: 34px;
+    font-size: 10px;
+  }
+  .btn--xl {
+    width: 100%;
+    height: 56px;
+    padding: 0 20px;
+    font-size: 13px;
+  }
+
+  /* hero */
+  .chapter--hero .chapter__stick {
+    padding-top: 76px;
+  }
+  .display {
+    font-size: clamp(26px, 8.4vw, 40px);
+  }
+  .hero__bottom {
+    margin-bottom: 48px;
+  }
+  .hero__aside .btn-row .btn:not(.btn--link) {
+    flex: 1 1 140px;
+  }
+  .ticker span {
+    font-size: 10px;
+  }
+
+  /* pricing: no side HUD to dodge on phones */
+  .chapter--pricing .chapter__stick {
+    padding-right: var(--gutter);
+  }
+  .plans {
+    margin-top: 0;
+    padding-bottom: 4px;
+  }
+  .plan {
+    flex-basis: 82%;
+    padding: 14px 16px;
+  }
+  .plan--featured ul {
+    display: none; /* keep the carousel short enough to fit the screen */
+  }
+  .plan__price,
+  .plan:not(.plan--featured) .plan__price {
+    font-size: 22px;
+  }
+  .plan:not(.plan--featured) .btn,
+  .plan .btn {
+    height: 40px;
+  }
+
+  /* finale */
+  .chapter--finale .chapter__stick {
+    padding-top: 96px;
+    padding-bottom: 64px; /* clear the floating Feedback tab */
+    background: linear-gradient(to top, rgba(7, 6, 11, 0.92) 0%, rgba(7, 6, 11, 0.6) 50%, transparent 80%);
+  }
+  .finale__title {
+    font-size: clamp(28px, 9vw, 40px);
+  }
+  .finale__bottom {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+  }
+  .newsletter input {
+    height: 44px;
+  }
+
+  /* footer */
+  .footer {
+    padding: 56px var(--gutter) 24px;
+  }
+  .footer__word {
+    margin: 36px 0 14px;
+  }
+
+  /* shop */
+  .page {
+    padding: 92px var(--gutter) 56px;
+  }
+  .shop__title {
+    font-size: clamp(38px, 15vw, 64px);
+  }
+  .shop__bar {
+    gap: 10px;
+    padding: 10px;
+    border-radius: 18px;
+  }
+  .shop__bar .chips {
+    flex: 1 1 100%;
+    flex-wrap: nowrap;
+    margin: 0 -10px;
+    padding: 0 10px 2px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .shop__bar .chips::-webkit-scrollbar {
+    display: none;
+  }
+  .shop__bar .chip {
+    flex: none;
+  }
+  .shop__tools {
+    flex: 1 1 100%;
+  }
+  .shop__tools .field {
+    flex: 1 1 100%;
+    min-width: 0;
+    font-size: 16px; /* stops iOS zoom-on-focus */
+  }
+  .shop__status {
+    flex-wrap: wrap;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* product */
+  .crumbs {
+    flex-wrap: wrap;
+    gap: 6px 10px;
+  }
+  .viewer {
+    border-radius: 20px;
+  }
+  .product__info h1 {
+    font-size: clamp(30px, 10vw, 44px);
+  }
+  .product__tagline {
+    font-size: 16px;
+  }
+  .product__price strong {
+    font-size: 36px;
+  }
+  .section-title {
+    margin: 56px 0 18px;
+  }
+
+  /* account / auth / modals */
+  .panel {
+    padding: 18px;
+    border-radius: 20px;
+  }
+  .kv {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .kv dd {
+    margin-bottom: 10px;
+  }
+  .toast {
+    bottom: 76px;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav__logo {
+    font-size: 11px;
+  }
+  .stats {
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+  .stats strong {
+    font-size: 24px;
   }
 }
 
