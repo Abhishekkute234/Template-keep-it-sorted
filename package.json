@@ -1,0 +1,37 @@
+{
+  "name": "keep-it-sorted",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "email:check": "node --env-file=.env.local scripts/check-email.mjs",
+    "db:check": "node --env-file=.env.local scripts/check-db.mjs"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.2",
+    "@react-three/postprocessing": "^3.2.2",
+    "@react-three/xr": "^6.6.32",
+    "mongodb": "^7.7.0",
+    "next": "^16.4.3",
+    "nodemailer": "^10.2.1",
+    "postprocessing": "^6.39.5",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "server-only": "^0.0.1",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@fontsource/space-grotesk": "^5.3.0",
+    "@fontsource/unbounded": "^5.3.0",
+    "@types/node": "^26.6.6",
+    "@types/nodemailer": "^8.0.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.186.0",
+    "mongodb-memory-server": "^11.3.0",
+    "typescript": "^5.9.3"
+  }
+}
